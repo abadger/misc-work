@@ -4,8 +4,16 @@
 # License: GPLv3+
 
 """
-Retrieve the github repos that are listed on galaxy for the collections in the last ansible
+Retrieve the repositories that are listed on galaxy for the collections in the last ansible
 package release.
+
+* This is what the collection owner provided on galaxy.  If they didn't
+  add a correct repository name (or, in some cases, added a subdirectory
+  rather than the url to clone), then additional normalization of the data
+  will be necessary.
+* This will look for the list of collections for the latest ansible.  In
+  some cases, this will be a different list than what was in the last
+  release on pypi.
 """
 import asyncio
 import glob
